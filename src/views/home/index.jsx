@@ -36,27 +36,12 @@ const Home = memo(() => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchHomeDataAction());
-    dispatch(changeHeaderConfigAction({isFixed: true}));
+    dispatch(changeHeaderConfigAction({isFixed: true, topAlpha: true}));
   }, [dispatch]);
   return (
     <HomeWrapper>
       <HomeBanner></HomeBanner>
       <div className="content">
-        {/* 折扣数据 */}
-        {/* <div className="discount">
-          <SectionHeader
-            title={disCountInfo.title}
-            subTitle={disCountInfo?.subtitle}
-          ></SectionHeader>
-          <SectionTabs
-            tabNames={tabNames}
-            tabclick={tabClickHandle}
-          ></SectionTabs>
-          <SectionRooms
-            roomList={disCountInfo?.dest_list?.[name]}
-            itemWidth="33.33333%"
-          ></SectionRooms>
-        </div> */}
         {isEmptyObject(disCountInfo) && (
           <HomeSectionV2 infoData={disCountInfo}></HomeSectionV2>
         )}

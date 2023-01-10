@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 export const HeaderWrapper = styled.div`
-  border-bottom: 1px solid #eee;
   font-size: 14px;
 
   &.fixed {
@@ -15,14 +14,14 @@ export const HeaderWrapper = styled.div`
   .content {
     position: relative;
     z-index: 19;
-    background-color: #fff;
+    background-color: ${props => props.theme.isAlpha ? 'rgba(255,255,255,0)': 'rgba(255,255,255,1)'};
+    border-bottom: 1px solid #eee;
+    border-bottom-color:  ${props => props.theme.isAlpha ? 'rgba(233,233,233,0)': 'rgba(233,233,233,1)'};;
+    transition: all 250ms ease;
     .top {
       display: flex;
       align-items: center;
       height: 80px;
-    }
-    .search-area {
-      height: 100px;
     }
   }
   .cover {
@@ -35,3 +34,9 @@ export const HeaderWrapper = styled.div`
     background-color: rgba(0,0,0,.3);
   }
 `;
+
+export const SearchAreaWrapper = styled.div`
+transition: height 250ms ease;
+ height: ${props => props.isSearch ? '100px': '0'};
+
+`
